@@ -33,8 +33,8 @@ Follow the steps below to set up the service:
 ### **1. Clone the Repository**
 
 ```bash
-git clone https://github.com/ashraful2871/cron-job-service.git
-cd cron-job-service
+git clone https://github.com/ashraful2871/cron-job-with-nest-js.git
+cd cron-job-with-nest-js
 ```
 
 ### **2. Install Dependencies**
