@@ -1,6 +1,3 @@
-Here's an example of how your `README.md` file could look based on the requirements you've mentioned:
-
----
 
 # Cron Job Service with NestJS and MongoDB
 
