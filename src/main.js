@@ -4,8 +4,7 @@ const CronController = require('./cron.controller');
 
 const app = express();
 
-// ✅ Add express.json() middleware
-app.use(express.json()); // This will automatically parse incoming JSON bodies
+app.use(express.json());
 
 const MONGO_URI =
   'mongodb+srv://test:vLSNUVVUoyoxKVun@cluster0.jq7qb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
