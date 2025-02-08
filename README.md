@@ -59,7 +59,7 @@ const MONGO_URI = 'your-mongodb-connection-string';
 To start the service, run:
 
 ```bash
-npm run start
+nodemon src/main.js
 ```
 
 This will start the server at `http://localhost:3000`.
@@ -94,44 +94,14 @@ The service exposes the following endpoints:
 
 To test the API:
 
-1. **Unit Tests**: This project uses **Jest** for unit testing. To run tests, use the following command:
-
-```bash
-npm run test
-```
-
-2. **Postman**: You can test the API using Postman by sending requests to `http://localhost:3000/api/cron-jobs`:
+1. **Postman**: You can test the API using Postman by sending requests to `http://localhost:3000/api/cron-jobs`:
 
 - **POST** request to create a new cron job.
 - **GET** request to retrieve all cron jobs.
 
 ---
 
-## **Folder Structure**
 
-```
-/src
-  /controllers
-    cron.controller.js       # Cron job routes and logic
-  /services
-    cron.service.js          # Logic to manage cron jobs
-  /providers
-    mongodb.provider.js      # MongoDB connection setup
-  app.module.js              # Main NestJS module setup
-  bootstrap.js               # App entry point to initialize server
-```
-
----
-
-## **Unit Tests**
-
-Unit tests are provided for the main service functionality. These tests ensure that the service is correctly handling cron job creation, storage, and retrieval.
-
-```bash
-npm run test
-```
-
----
 
 ## **Additional Notes**
 
@@ -141,10 +111,3 @@ npm run test
 
 ---
 
-## **License**
-
-MIT License - See the [LICENSE](LICENSE) file for details.
-
----
-
-This README file covers the basics of setting up and running your cron job service, provides information about the available endpoints, and also guides you through testing and running unit tests for the service.
