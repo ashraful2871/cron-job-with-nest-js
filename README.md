@@ -1,99 +1,150 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+Here's an example of how your `README.md` file could look based on the requirements you've mentioned:
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+---
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Cron Job Service with NestJS and MongoDB
 
-## Description
+This is a simple service built using **NestJS** and **MongoDB** to manage cron jobs. It allows you to create, update, delete, and retrieve cron jobs. It also provides a webhook to receive and store data in JSON format, and includes functionality to store history of cron job executions.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Features
 
-## Project setup
+- **CRUD Operations**: Create, update, delete, and retrieve cron jobs.
+- **Cron Scheduling**: Supports scheduling cron jobs with weekly, monthly, etc., timings.
+- **Webhook**: Accepts data from external services and stores it.
+- **History Tracking**: Tracks the history of cron job triggers.
+- **Rate Limiting**: Implemented to avoid abuse.
+- **API Throttling**: Helps ensure service stability.
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## **Technology Stack**
+
+- **Backend**: NestJS (JavaScript)
+- **Database**: MongoDB (No Mongoose, direct MongoDB driver)
+- **Cron Scheduling**: Native JavaScript cron jobs (for simplicity)
+- **API**: RESTful API with Express router in NestJS
+
+---
+
+## **Setup and Installation**
+
+Follow the steps below to set up the service:
+
+### **1. Clone the Repository**
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/your-username/cron-job-service.git
+cd cron-job-service
 ```
 
-## Run tests
+### **2. Install Dependencies**
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+### **3. Configure MongoDB**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+You need to configure MongoDB to work with the service:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- Ensure you have a MongoDB database set up. You can use MongoDB Atlas or a local MongoDB instance.
+- Modify the `MONGO_URI` in the `bootstrap.js` file:
+
+```javascript
+const MONGO_URI = 'your-mongodb-connection-string';
+```
+
+### **4. Start the Service**
+
+To start the service, run:
 
 ```bash
-$ npm install -g mau
-$ mau deploy
+npm run start
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+This will start the server at `http://localhost:3000`.
 
-## Resources
+### **5. API Endpoints**
 
-Check out a few resources that may come in handy when working with NestJS:
+The service exposes the following endpoints:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+- **POST /api/cron-jobs**: Create a new cron job.
 
-## Support
+  - Request body example:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+  ```json
+  {
+    "name": "Test Cron Job",
+    "link": "https://example.com",
+    "apiKey": "your-api-key",
+    "schedule": "weekly",
+    "startDate": "2025-02-10T10:00:00Z"
+  }
+  ```
 
-## Stay in touch
+- **GET /api/cron-jobs**: Retrieve all cron jobs.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### **6. Webhook Endpoint**
 
-## License
+- **POST /api/webhook**: Receives and stores data in JSON format. The data is stored with a unique ID and creation date.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
+
+## **Testing**
+
+To test the API:
+
+1. **Unit Tests**: This project uses **Jest** for unit testing. To run tests, use the following command:
+
+```bash
+npm run test
+```
+
+2. **Postman**: You can test the API using Postman by sending requests to `http://localhost:3000/api/cron-jobs`:
+
+- **POST** request to create a new cron job.
+- **GET** request to retrieve all cron jobs.
+
+---
+
+## **Folder Structure**
+
+```
+/src
+  /controllers
+    cron.controller.js       # Cron job routes and logic
+  /services
+    cron.service.js          # Logic to manage cron jobs
+  /providers
+    mongodb.provider.js      # MongoDB connection setup
+  app.module.js              # Main NestJS module setup
+  bootstrap.js               # App entry point to initialize server
+```
+
+---
+
+## **Unit Tests**
+
+Unit tests are provided for the main service functionality. These tests ensure that the service is correctly handling cron job creation, storage, and retrieval.
+
+```bash
+npm run test
+```
+
+---
+
+## **Additional Notes**
+
+- The service is designed for scalability and performance, using MongoDB to store cron jobs and their execution history.
+- Rate limiting and API throttling are implemented to ensure stability and prevent abuse of the API.
+- The webhook endpoint ensures that external services can send data and it will be saved for further processing.
+
+---
+
+## **License**
+
+MIT License - See the [LICENSE](LICENSE) file for details.
+
+---
+
+This README file covers the basics of setting up and running your cron job service, provides information about the available endpoints, and also guides you through testing and running unit tests for the service.
